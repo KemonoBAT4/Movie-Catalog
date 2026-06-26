@@ -1,0 +1,20 @@
+# src.routes._common
+
+# flask imports
+from flask import Blueprint, redirect, url_for, request, jsonify                     # type: ignore
+from flask import render_template, send_from_directory                               # type: ignore
+from flask_login import login_required                                               # type: ignore
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+import sqlalchemy as sa
+
+# core imports
+from core.models import *
+from core.decorators import *
+from core.utils import *
+
+# other imports
+import os
+import typing
+from enum import Enum
+import datetime
+import json
