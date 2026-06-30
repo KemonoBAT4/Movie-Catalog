@@ -71,11 +71,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = str(config.get("Database", "SQLALCHEMY_D
 
 db.init_app(app)
 
-host: str = str(config.get("App", "host"))
-port: int = int(config.get("App", "port"))
-
-debug: bool = bool(config.get("App", "debug"))
-
 
 #region    ---------------- blueprints ---------------- #
 
@@ -90,11 +85,3 @@ app.register_blueprint(api_routes      , url_prefix = "/api")
 # with app.app_context():
 #     db.create_all()
 # # #endwith
-
-if __name__ == "__main__":
-    app.run(
-        host  = host,
-        port  = port,
-        debug = debug
-    )
-# #endif

@@ -11,7 +11,7 @@ def api_home(_headers=None, _body=None):
 
 @api_routes.route("/library/search/<string:query>", methods=["GET", "POST"])
 @get_parameters
-@jwt_required
+@jwt_required()
 def api_library_search(query: str, _headers=None, _body=None) -> typing.Any:
     """
     #### DESCRIPTION:
@@ -56,12 +56,10 @@ def api_library_search(query: str, _headers=None, _body=None) -> typing.Any:
 
 @api_routes.route("/tmdb/film/search/title/<string:query>", methods=["GET", "POST"])
 @get_parameters
-@jwt_required
+@jwt_required()
 def tmdb_film_seach_title(query: str, _headers=None, _body=None) -> typing.Any:
     adult : str = "true"
     page  : int = 1
 
     data: dict = movie_api_search(query=query, adult=adult, page=page)
-
-
-
+# #enddef tmdb_film_seach_title

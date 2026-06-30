@@ -4,10 +4,12 @@ from ._common import *
 # NOTE
 # TODO: check if this is correctly implemented
 def api_response(func):
+
+    @wraps(func)
     def wrapper(*args, **kwargs):
         response: typing.Any = func(*args, **kwargs)
         result: typing.Any = jsonify({
-            "status" : "ok", # TODO: implement this
+            "status" : True, # TODO: implement this
             "version": "", # TODO: implement this
             "data"   : response
         })
@@ -19,6 +21,8 @@ def api_response(func):
 # #enddef api_response
 
 def get_parameters(func):
+
+    @wraps(func)
     def wrapper(*args, **kwargs):
 
         method = request.method
@@ -40,11 +44,10 @@ def get_parameters(func):
         return func(
             *args,
             **kwargs,
-            _headers = request.headers,
-            _args    = arguments,
-            _body    = body,
-            _files   = files,
-            _form    = form
+            _args  = arguments,
+            _body  = body,
+            _files = files,
+            _form  = form
         )
     # #enddef
 
