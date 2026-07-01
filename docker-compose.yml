@@ -1,0 +1,23 @@
+
+version: "3.9"
+
+services:
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    # #endport
+  # #endbackend
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    # #endport
+
+    depends_on:
+      - backend
+    # #enddepends_on
+  # #endfrontend
+# #endservices
