@@ -12,6 +12,9 @@ class User(UserMixin, BaseModel):
     email           = db.Column(db.String(120), nullable=False, unique=True )
     hashed_password = db.Column(db.LargeBinary, nullable=False )
 
+    settings_id = db.Column(db.Integer, db.ForeignKey("user_settings.id"), nullable = False)
+    settings    = db.relationship("UserSettings", backref = "user")
+
     @classmethod
     def register(cls, username: str, email: str, name: str, surname: str, password: str) -> "User | tuple":
         """
@@ -241,4 +244,17 @@ class TVShowComment(BaseModel):
 
         return record
     # #enddef new
+# #endclass
+
+class UserSettings(BaseModel):
+
+    __tablename__ = "user_settings"
+
+# #endclass UserSettings
+
+class Settings(BaseModel):
+
+    __tablename__ = "app_settings"
+
+    pass
 # #endclass
