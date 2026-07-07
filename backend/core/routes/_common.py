@@ -4,7 +4,7 @@
 from flask import Blueprint, redirect, url_for, request, jsonify                     # type: ignore
 from flask import render_template, send_from_directory                               # type: ignore
 from flask_login import login_required                                               # type: ignore
-from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, set_access_cookies, unset_jwt_cookies
 from sqlalchemy import and_, or_
 
 # core imports
