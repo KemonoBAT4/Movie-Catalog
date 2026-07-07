@@ -1,0 +1,40 @@
+<header class="header-container">
+    <div class="header-logo-container">
+        <img src="/assets/movie_catalog_logo.png" alt="MovieCatalog" class="logo-icon">
+        <span class="logo-text">Movie Catalog</span>
+    </div>
+
+    <nav class="header-tabs-container">
+        @for (tab of tabs; track tab.name) {
+            <a class="tab-item" [class.active]="tab.active" (click)="selectTab(tab)">{{ tab.name }}</a>
+        }
+    </nav>
+
+    <div class="header-actions-container">
+        <div class="search-wrapper" [class.open]="isSearchOpen">
+            <input
+                type="text"
+                class="search-input"
+                placeholder="Cerca film, serie..."
+                [(ngModel)]="searchQuery"
+                (keyup.enter)="onSearch()"
+                #searchInput
+            >
+            <button type="button" class="search-icon-btn" (click)="toggleSearch(searchInput)" aria-label="Cerca">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="header-user-container">
+            @if (isLoggedIn) {
+                <img [src]="userAvatarUrl" alt="avatar" class="user-avatar">
+                <span class="user-name">{{ userName }}</span>
+            } @else {
+                <span class="user-name">Not Logged In</span>
+            }
+        </div>
+    </div>
+</header>

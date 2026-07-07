@@ -1,0 +1,141 @@
+.header-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  background-color: #1c2534;
+  box-sizing: border-box;
+}
+
+/* --- Logo --- */
+.header-logo-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.logo-text {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* --- Tabs --- */
+.header-tabs-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 28px;
+  margin-left: 48px;
+  flex: 1;
+}
+
+.tab-item {
+  color: #aab2c0;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  padding-bottom: 4px;
+  white-space: nowrap;
+}
+
+.tab-item.active {
+  color: #ff7a45;
+  border-bottom: 2px solid #ff7a45;
+}
+
+/* --- Right side: search + user --- */
+.header-actions-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.search-icon-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #aab2c0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: color 0.2s ease;
+}
+
+.search-icon-btn:hover {
+  color: #fff;
+}
+
+.search-wrapper.open .search-icon-btn {
+  color: #ff7a45;
+}
+
+.search-input {
+  width: 0;
+  opacity: 0;
+  height: 32px;
+  padding: 0;
+  margin-right: 0;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background-color: #2a3444;
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+  transition: width 0.25s ease, opacity 0.2s ease, padding 0.25s ease, margin 0.25s ease;
+}
+
+.search-wrapper.open .search-input {
+  width: 200px;
+  opacity: 1;
+  padding: 0 14px;
+  margin-right: 10px;
+  border-color: #3a4658;
+}
+
+.search-wrapper.open .search-icon {
+  color: #ff7a45;
+}
+
+.search-input::placeholder {
+  color: #7a8598;
+}
+
+/* --- User --- */
+.header-user-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-name {
+  color: #fff;
+  font-size: 14px;
+  white-space: nowrap;
+}
