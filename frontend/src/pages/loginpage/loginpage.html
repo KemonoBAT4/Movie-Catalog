@@ -1,1 +1,59 @@
-<p>loginpage works!</p>
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-logo">
+      <img src="/assets/movie_catalog_logo.png" alt="CineSpace logo" class="login-logo-icon">
+      <span class="login-logo-text">Movie Catalog</span>
+    </div>
+
+    <h1 class="login-title">Bentornato</h1>
+    <p class="login-subtitle">Accedi per continuare a guardare</p>
+
+    <form class="login-form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          class="form-input"
+          placeholder="nome@esempio.com"
+          [(ngModel)]="email"
+          name="email"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          class="form-input"
+          placeholder="••••••••"
+          [(ngModel)]="password"
+          name="password"
+          required
+        >
+      </div>
+
+      @if (errorMessage) {
+        <p class="form-error">{{ errorMessage }}</p>
+      }
+
+      <div class="form-options">
+        <label class="remember-me">
+          <input type="checkbox" name="rememberMe" [(ngModel)]="rememberMe">
+          <span>Ricordami</span>
+        </label>
+        <a href="/auth/forgot-password" class="forgot-link">Password dimenticata?</a>
+      </div>
+
+      <button type="submit" class="login-submit-btn" [disabled]="isLoading">
+        {{ isLoading ? 'Accesso in corso...' : 'Accedi' }}
+      </button>
+    </form>
+
+    <p class="login-signup-prompt">
+      Non hai un account? <a href="/auth/register" class="signup-link">Registrati</a>
+    </p>
+  </div>
+</div>
