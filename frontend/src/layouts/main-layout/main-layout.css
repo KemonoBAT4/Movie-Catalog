@@ -1,0 +1,25 @@
+.app-container {
+    width: 100%;
+    height: 100%;
+}
+
+.header-container {
+    width: 100%;
+    height: 7%;
+
+    background-color: #181f2f;
+}
+
+.content-container {
+    width: 100%;
+    height: 93%;
+
+    background-color: #19212e;
+}
+
+.footer-container {
+    width: 100%;
+    height: 10%;
+
+    background-color: #232b39;
+}
