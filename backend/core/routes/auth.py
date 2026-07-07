@@ -21,7 +21,11 @@ def auth_login(_headers=None, _body=None):
 
     # NOTE: default expire time
     token: str = create_access_token(identity = user.uname)
-    return jsonify( { "status": True, "token": token } )
+    response = jsonify( { "status": True } )
+
+    set_access_cookies(response, token) # sets the cookie
+
+    return response
 # #enddef auth_login
 
 @auth_routes.route("/register", methods=["POST"])
@@ -49,12 +53,28 @@ def auth_register(_headers=None, _body=None):
 
     # NOTE: default expire time
     token: str = create_access_token(identity = user.uname)
-    return jsonify( { "status": True, "token": token } )
+    response = jsonify( { "status": True } )
+
+    set_access_cookies(response, token) # sets the cookie
+
+    return response
 # #enddef auth_register
+
+@auth_routes.route("/logout", methods=["POST"])
+@get_parameters
+@jwt_required()
+def auth_logout(_headers=None, _body=None):
+
+    response = jsonify( { "status": True } )
+
+    unset_jwt_cookies(response) # deletes the cookie
+
+    return response
+# #enddef auth_logout
 
 @auth_routes.route("/me", methods=["GET"])
 @get_parameters
-@jwt_required
+@jwt_required()
 def auth_me(_headers=None, _body=None):
 
     current_user_uname = get_jwt_identity()
