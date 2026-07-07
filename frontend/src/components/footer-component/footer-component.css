@@ -1,0 +1,146 @@
+.footer-container {
+  width: 100%;
+  background-color: #141b28;
+  padding: 48px 32px 24px;
+  box-sizing: border-box;
+  border-top: 1px solid #232d3f;
+}
+
+/* --- Columns --- */
+.footer-columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-brand-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.footer-logo-text {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.footer-tagline {
+  color: #8a94a6;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 280px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.social-link {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #232d3f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aab2c0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.social-link:hover {
+  background-color: #ff7a45;
+  color: #fff;
+}
+
+/* --- Link columns --- */
+.footer-link-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-column-title {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.footer-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-link {
+  color: #8a94a6;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #ff7a45;
+}
+
+/* --- Bottom bar --- */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid #232d3f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copyright {
+  color: #6b7688;
+  font-size: 12px;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-legal-link {
+  color: #6b7688;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.footer-legal-link:hover {
+  color: #aab2c0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .footer-columns {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-brand-column {
+    grid-column: 1 / -1;
+  }
+}

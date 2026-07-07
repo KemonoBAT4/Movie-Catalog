@@ -1,0 +1,38 @@
+<footer class="footer-container">
+    <div class="footer-columns">
+        <div class="footer-brand-column">
+            <div class="footer-logo">
+                <img src="/assets/movie_catalog_logo.png" alt="MovieCatalog logo" class="footer-logo-icon">
+                <span class="footer-logo-text">Movie Catalog</span>
+            </div>
+            <p class="footer-tagline">Scopri, guarda e organizza i tuoi film e le tue serie preferite in un unico posto.</p>
+            <div class="footer-socials">
+                @for (social of socials; track social.name) {
+                <a [href]="social.url" class="social-link" [attr.aria-label]="social.name" target="_blank" rel="noopener">
+                    <span [innerHTML]="social.icon"></span>
+                </a>
+                }
+            </div>
+        </div>
+
+        @for (column of footerColumns; track column.title) {
+            <div class="footer-link-column">
+                <h4 class="footer-column-title">{{ column.title }}</h4>
+                <ul class="footer-link-list">
+                    @for (link of column.links; track link.label) {
+                        <li><a [href]="link.url" class="footer-link">{{ link.label }}</a></li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+
+    <div class="footer-bottom">
+        <span class="footer-copyright">&copy; {{ currentYear }} MovieCatalog. Tutti i diritti riservati.</span>
+        <div class="footer-legal-links">
+            @for (legal of legalLinks; track legal.label) {
+                <a [href]="legal.url" class="footer-legal-link">{{ legal.label }}</a>
+            }
+        </div>
+    </div>
+</footer>
