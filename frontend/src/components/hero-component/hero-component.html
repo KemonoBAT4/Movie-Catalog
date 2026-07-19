@@ -1,1 +1,38 @@
-<p>hero-component works!</p>
+<section class="hero-section">
+    <div class="hero-scroll-container" #scrollContainer (scroll)="onScroll()">
+        @for (slide of slides; track slide.title) {
+            @if (slide.type === 'promo') {
+                <div class="hero-slide hero-promo-slide">
+                    <h1 class="hero-title">{{ slide.title }}</h1>
+                    <p class="hero-subtitle">{{ slide.subtitle }}</p>
+                    <div class="hero-cta-group">
+                        <button class="hero-btn hero-btn-primary">{{ slide.primaryCta }}</button>
+                        <button class="hero-btn hero-btn-secondary">{{ slide.secondaryCta }}</button>
+                    </div>
+                </div>
+            } @else {
+                <div class="hero-slide hero-movie-slide" [style.background-image]="'url(' + slide.backgroundUrl + ')'">
+                    <div class="hero-movie-overlay">
+                        <button class="hero-play-btn" aria-label="Riproduci">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+                        <span class="hero-movie-title">{{ slide.title }}</span>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    <div class="hero-dots">
+        @for (slide of slides; track $index) {
+        <button
+            class="hero-dot"
+            [class.active]="$index === activeIndex"
+            (click)="scrollToSlide($index)"
+            [attr.aria-label]="'Vai allo slide ' + ($index + 1)"
+        ></button>
+        }
+    </div>
+</section>

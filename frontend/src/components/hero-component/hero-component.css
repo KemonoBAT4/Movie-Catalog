@@ -1,0 +1,168 @@
+.hero-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 32px;
+  box-sizing: border-box;
+
+  /* background-color: red; */
+}
+
+.hero-scroll-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hero-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.hero-slide {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  height: 100%;
+  border-radius: 12px;
+  box-sizing: border-box;
+
+}
+
+/* --- Promo slide (testo + bottoni) --- */
+.hero-promo-slide {
+  width: 38%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  padding: 0 8px;
+}
+
+.hero-title {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  color: #aab2c0;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 340px;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.hero-btn {
+  height: 42px;
+  padding: 0 22px;
+  border-radius: 21px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.hero-btn:hover {
+  opacity: 0.85;
+}
+
+.hero-btn-primary {
+  background-color: #ff7a45;
+  border: none;
+  color: #fff;
+}
+
+.hero-btn-secondary {
+  background-color: transparent;
+  border: 1px solid #4a5668;
+  color: #fff;
+}
+
+/* --- Movie slide (locandina di sfondo) --- */
+.hero-movie-slide {
+  width: 320px;
+  min-width: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-movie-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(15,21,32,0) 40%, rgba(15,21,32,0.85) 100%);
+  box-sizing: border-box;
+}
+
+.hero-play-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.7);
+  background-color: rgba(15,21,32,0.4);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  align-self: center;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.hero-movie-title {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* --- Dots --- */
+.hero-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.hero-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background-color: #3a4658;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease, width 0.2s ease;
+}
+
+.hero-dot.active {
+  background-color: #ff7a45;
+  width: 20px;
+  border-radius: 4px;
+}
