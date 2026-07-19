@@ -1,0 +1,90 @@
+.favorites-section {
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+  display: flex;
+  padding: 24px 32px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.favorites-scroll {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.favorites-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-card {
+  flex-shrink: 0;
+  width: 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* --- Poster verticale --- */
+.movie-poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.movie-card:hover .movie-poster {
+  transform: scale(1.03);
+}
+
+/* --- Banner voto in basso sulla locandina --- */
+.rating-banner {
+  width: 100%;
+  padding: 8px 8px 6px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: linear-gradient(180deg, rgba(15,21,32,0) 0%, rgba(15,21,32,0.85) 55%, rgba(15,21,32,0.85) 100%);
+}
+
+.rating-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.rating-value {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* --- Titolo sotto la card --- */
+.movie-title {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
