@@ -1,1 +1,31 @@
-<p>continue-watching-component works!</p>
+<section class="continue-watching-section">
+  <div class="section-header">
+    <h2 class="section-title">Continua a Guardare</h2>
+    <span class="section-subtitle">Continua la Visione</span>
+  </div>
+
+  <div class="continue-watching-scroll">
+    @for (item of items; track item.title) {
+      <div class="cw-card">
+        <div class="cw-poster" [style.background-image]="'url(' + item.posterUrl + ')'">
+          <button class="cw-play-btn" aria-label="Riprendi riproduzione">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </button>
+
+          <div class="cw-banner">
+            <span class="cw-title">{{ item.title.toUpperCase() }}</span>
+            <div class="cw-meta-row">
+              <span class="cw-remaining">{{ formatRemaining(item.minutesRemaining) }}</span>
+              <span class="cw-percent">{{ item.progressPercent }}% completato</span>
+            </div>
+            <div class="cw-progress-track">
+              <div class="cw-progress-fill" [style.width.%]="item.progressPercent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
