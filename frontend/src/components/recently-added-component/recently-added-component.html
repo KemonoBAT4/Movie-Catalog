@@ -1,0 +1,32 @@
+<section class="recently-added-section">
+  <div class="section-header">
+    <h2 class="section-title">Aggiunti Di Recente</h2>
+    <span class="section-subtitle">Aggiunti Ultimamente</span>
+  </div>
+
+  <div class="recently-added-grid">
+    @for (item of items; track $index) {
+      <div class="ra-card">
+        <div class="ra-poster" [style.background-image]="'url(' + item.posterUrl + ')'">
+          <button class="ra-play-btn" aria-label="Riproduci">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="ra-info">
+          <span class="ra-title">{{ item.title.toUpperCase() }}</span>
+          <div class="ra-rating">
+            @for (star of stars; track star) {
+              <svg viewBox="0 0 24 24" width="10" height="10" [attr.fill]="star <= item.rating ? '#ff7a45' : '#4a5668'">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            }
+            <span class="ra-rating-value">{{ item.rating }}/5</span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
