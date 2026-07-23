@@ -1,7 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { PromoSlide, MovieSlide } from '../../models/user.model';
 
-
 type HeroSlide = PromoSlide | MovieSlide;
 
 @Component({

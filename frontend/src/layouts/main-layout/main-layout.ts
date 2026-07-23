@@ -5,7 +5,11 @@ import { HeaderComponent } from '../../components/header-component/header-compon
 
 @Component({
   selector: 'app-main-layout',
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    FooterComponent
+  ],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.css',
 })
