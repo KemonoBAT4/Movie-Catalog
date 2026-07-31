@@ -63,3 +63,54 @@ def tmdb_film_seach_title(query: str, _headers=None, _body=None) -> typing.Any:
 
     data: dict = movie_api_search(query=query, adult=adult, page=page)
 # #enddef tmdb_film_seach_title
+
+@api_routes.route("/favourites", methods=["GET", "POST"])
+# @get_parameters
+# @jwt_required()
+def get_favourites():
+    return jsonify(
+        [
+            {
+                "title": "Test Favoriti 1",
+                "posterUrl": "https://s3.zerochan.net/Zhuang.Fangyi.240.4691020.avif",
+                "rating": "4.4"
+            },
+            {
+                "title": "Test Favoriti 2",
+                "posterUrl": "https://s3.zerochan.net/Zhuang.Fangyi.240.4691020.avif",
+                "rating": "4.4"
+            },
+            {
+                "title": "Test Favoriti 3",
+                "posterUrl": "https://s3.zerochan.net/Zhuang.Fangyi.240.4691020.avif",
+                "rating": "4.4"
+            },
+            {
+                "title": "Test Favoriti 4",
+                "posterUrl": "https://s3.zerochan.net/Zhuang.Fangyi.240.4691020.avif",
+                "rating": "4.4"
+            }
+        ]
+    )
+# #enddef get_favourites
+
+@api_routes.route("/recently-added", methods=["GET", "POST"])
+def recently_added():
+    return get_favourites()
+# #enddef recently_added
+
+@api_routes.route("/watch/<string:uname>/details", methods=["GET", "POST"])
+def movie_details(uname: str):
+    return jsonify({
+        "id": uname,
+        "title": "...",
+        "description": "...",
+        "streamUrl": f"/watch/{uname}/stream"  # punta al secondo endpoint
+    })
+# #enddef watch_movie
+
+
+@api_routes.route("/watch/<string:uname>/stream", methods=["GET", "POST"])
+def watch_movie(uname: str):
+    return send_file(path_or_file="D:\documents\projects\moviecatalog\Moon Artist - Echo.mp4", mimetype="video/mp4", conditional=True)
+# #enddef watch_movie

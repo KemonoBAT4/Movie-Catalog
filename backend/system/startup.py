@@ -35,7 +35,7 @@ app: Flask = Flask(
 
 load_dotenv()
 
-cors: CORS = CORS(app)
+cors = CORS(app, origins=["http://localhost:4200"], supports_credentials=True)
 
 login_manager: LoginManager = LoginManager()
 
