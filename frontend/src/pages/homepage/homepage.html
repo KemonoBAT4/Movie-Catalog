@@ -10,11 +10,11 @@
 
         <div class="vertical-container">
             <div class="favourites-container">
-                <app-item-list-component></app-item-list-component>
+                <app-item-list-component title="i Tuoi Preferiti" subtitle="" [items]="favourites_items()" [stars]="stars"></app-item-list-component>
             </div>
 
             <div class="recently-added-container">
-                <app-item-list-component></app-item-list-component>
+                <app-item-list-component title="Aggiunti di Recente" subtitle="Aggiunti Ultimamente" [items]="recently_added_items()" [stars]="stars"></app-item-list-component>
             </div>
         </div>
     </div>

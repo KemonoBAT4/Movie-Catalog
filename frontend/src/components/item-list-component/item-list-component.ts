@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MovieListItem } from '../../models/user.model';
 
 
@@ -9,14 +9,10 @@ import { MovieListItem } from '../../models/user.model';
   styleUrl: './item-list-component.css',
 })
 export class ItemListComponent {
-  items: MovieListItem[] = [
-    { title: 'Past Lives'                , posterUrl: 'https://s3.zerochan.net/Zhuang.Fangyi.240.4691020.avif', rating: 4.8 },
-    { title: 'Top Gun: Maverick'         , posterUrl: 'https://s3.zerochan.net/Zhuang.Fangyi.240.4691020.avif', rating: 4.8 },
-    { title: 'Killers of the Flower Moon', posterUrl: 'https://s3.zerochan.net/Zhuang.Fangyi.240.4691020.avif', rating: 4.6 },
-    { title: 'Killers of the Flower Moon', posterUrl: 'https://s3.zerochan.net/Zhuang.Fangyi.240.4691020.avif', rating: 4.6 },
-    { title: 'Kindergarten Cop'          , posterUrl: 'https://s3.zerochan.net/Zhuang.Fangyi.240.4691020.avif', rating: 4.6 },
 
-  ];
+  @Input({required: true}) title!: string;
+  @Input({required: true}) items!: MovieListItem[];
+  @Input({required: true}) stars!: number[];
 
-  stars = [1, 2, 3, 4, 5];
+  @Input({required: false}) subtitle: string = '';
 }

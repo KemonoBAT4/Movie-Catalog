@@ -31,3 +31,10 @@ export interface MovieListItem {
   posterUrl : string;
   rating    : number;
 }
+
+export interface MovieDetails {
+  id: string;
+  title: string;
+  description: string;
+  streamUrl: string;
+}
