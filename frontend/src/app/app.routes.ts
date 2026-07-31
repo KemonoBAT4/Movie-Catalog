@@ -10,14 +10,21 @@ import { Registerpage } from '../pages/registerpage/registerpage';
 import { Privacypage } from '../pages/privacypage/privacypage';
 import { Termspage } from '../pages/termspage/termspage';
 import { Cookiespage } from '../pages/cookiespage/cookiespage';
+import { Explorepage } from '../pages/explorepage/explorepage';
+import { Librarypage } from '../pages/librarypage/librarypage';
+import { Watchpage } from '../pages/watchpage/watchpage';
 
 export const routes: Routes = [
     {
         path :  "",
         component: MainLayout,
         children: [
-            { path: "", redirectTo: "home", pathMatch: "full" },
-            { path: "home", component: Homepage               },
+            { path: "" , redirectTo: "home", pathMatch: "full" },
+
+            { path: "home"     , component: Homepage    },
+            { path: "explore"  , component: Explorepage },
+            { path: "library"  , component: Librarypage },
+            { path: "watch/:id", component: Watchpage   }
         ]
     },
     {
