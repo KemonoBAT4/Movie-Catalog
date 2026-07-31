@@ -1,0 +1,24 @@
+<div class="watchpage-container">
+    @if (isLoading()) {
+        <div class="watch-state-message">Caricamento in corso...</div>
+    } @else if (errorMessage()) {
+        <div class="watch-state-message watch-error">{{ errorMessage() }}</div>
+    } @else if (movie()) {
+        <div class="video-wrapper">
+            <video
+                class="video-player"
+                [src]="movie()!.streamUrl"
+                controls
+                autoplay
+                preload="metadata"
+            >
+                Il tuo browser non supporta la riproduzione video.
+            </video>
+        </div>
+
+        <div class="movie-info">
+            <h1 class="movie-title">{{ movie()!.title }}</h1>
+            <p class="movie-description">{{ movie()!.description }}</p>
+        </div>
+    }
+</div>

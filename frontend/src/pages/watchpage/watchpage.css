@@ -1,0 +1,57 @@
+.watchpage-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0f1520;
+  padding: 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.watch-state-message {
+  color: #aab2c0;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.watch-error {
+  color: #ff6b6b;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.movie-info {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.movie-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.movie-description {
+  color: #aab2c0;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
